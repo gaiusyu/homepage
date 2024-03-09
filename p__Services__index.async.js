@@ -7,8 +7,8 @@ in CUHKSZ.\r
 ## External Reviewer \u2014\u2014 2023\r
 \r
 - IEEE International Conference onSoftware Analysis, Evolution and Reengineering (SANER 2023)\r
-- Empirical Software Engineering (EMSE 2023) (CCF-B)\r
-- \u5217\u8868\u98793\r
+- Empirical Software Engineering (EMSE 2023) \r
+\r
 \r
 \r
 `,t=n(65273),r=n(29671),i=n(86074),c=function(){return(0,i.jsxs)("div",{className:"page",children:[(0,i.jsx)(t.Z,{}),(0,i.jsxs)("div",{className:"content",children:[(0,i.jsx)("div",{className:"title",children:"Services"}),(0,i.jsx)("div",{className:"markdown",children:(0,i.jsx)(r.U,{children:o})})]})]})}},49721:function(e){e.exports=JSON.parse('{"name":"Siyu Yu","location":"ShenZhen, China","email":"gaiusyu6@gmail.com","github":"https://github.com/gaiusyu","twitter":"https://twitter.com/None","googleScholar":"https://scholar.google.com/citations?user=PBRCSToAAAAJ&hl=en&oi=sra","showBar":["aboutme","publications","awards","services","cv"]}')}}]);
