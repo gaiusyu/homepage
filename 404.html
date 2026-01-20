@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Redirecting...</title>
+    <script>
+        // GitHub Pages SPA 路由处理
+        // 当用户直接访问 SPA 路由（如 /homepage/aboutme）时，
+        // GitHub Pages 找不到该文件，返回 404.html
+        // 这个脚本将页面重定向回 index.html，让 React Router 处理路由
+        
+        const path = window.location.pathname;
+        const basePath = '/homepage/';
+        
+        // 如果路径不是根路径，保存路由信息并重定向到根路径
+        if (path !== basePath && path !== '/') {
+          // 保存原始路径，在 index.html 加载后使用
+          sessionStorage.setItem('redirect', path);
+          window.location.href = basePath;
+        }
+    </script>
+</head>
+<body>
+    Loading...
+</body>
+</html>
