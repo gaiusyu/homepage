@@ -1,26 +1,51 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <title>Redirecting...</title>
-    <script>
-        // GitHub Pages SPA 路由处理
-        // 当用户直接访问 SPA 路由（如 /homepage/aboutme）时，
-        // GitHub Pages 找不到该文件，返回 404.html
-        // 这个脚本将页面重定向回 index.html，让 React Router 处理路由
-        
-        const path = window.location.pathname;
-        const basePath = '/homepage/';
-        
-        // 如果路径不是根路径，保存路由信息并重定向到根路径
-        if (path !== basePath && path !== '/') {
-          // 保存原始路径，在 index.html 加载后使用
-          sessionStorage.setItem('redirect', path);
-          window.location.href = basePath;
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Siyu Yu - Personal Website</title>
+    <meta name="description" content="Siyu Yu - PhD Student at Peking University, Software Engineering Research">
+    <script id="homepage-asset-recovery">
+      (function () {
+        var reloadKey = 'homepage-asset-reloaded';
+        function getSessionFlag() {
+          try { return window.sessionStorage.getItem(reloadKey); } catch (error) { return null; }
         }
+        function setSessionFlag() {
+          try { window.sessionStorage.setItem(reloadKey, '1'); } catch (error) {}
+        }
+        function clearSessionFlag() {
+          try { window.sessionStorage.removeItem(reloadKey); } catch (error) {}
+        }
+        function shouldHandleAsset(url) {
+          return url && (/\/homepage\//.test(url) || /umi\..*\.js$/.test(url) || /\.async\..*\.js$/.test(url) || /\.chunk\..*\.css$/.test(url));
+        }
+        function shouldHandleMessage(message) {
+          return /ChunkLoadError|Loading chunk|Failed to fetch dynamically imported module/i.test(String(message || ''));
+        }
+        function reloadOnce() {
+          if (getSessionFlag() === '1') return;
+          setSessionFlag();
+          window.location.reload();
+        }
+        window.addEventListener('error', function (event) {
+          var target = event.target || event.srcElement;
+          var url = target && (target.src || target.href);
+          if (shouldHandleAsset(url) || shouldHandleMessage(event.message)) reloadOnce();
+        }, true);
+        window.addEventListener('unhandledrejection', function (event) {
+          var reason = event.reason || {};
+          if (shouldHandleMessage(reason.message || reason)) reloadOnce();
+        });
+        window.addEventListener('load', function () {
+          window.setTimeout(clearSessionFlag, 1000);
+        });
+      })();
     </script>
 </head>
 <body>
-    Loading...
+<div id="root"></div>
+<script src="/homepage/umi.0afe3117.js"></script>
 </body>
 </html>
